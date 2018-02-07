@@ -3,7 +3,8 @@ import React, { Component } from 'react';
 import Router from 'react-router';
 import AgeField from './AgeField';
 import NameField from './NameField';
-import { DefaultRoute, Link, Route, RouteHandler } from 'react-router';
+import actions from '../actions/actions.js';
+import { connect } from 'react-redux';
 
 class UserForm extends Component {
     constructor(props) {
@@ -13,13 +14,14 @@ class UserForm extends Component {
     handleSubmit(e) {
         e.preventDefault();
         var name = this.refs.nameField.state.value;
-        var age = this.refs.ageField.state.value;
+        var age = parseInt(this.refs.ageField.state.value);
         if (this.refs.nameField.state.valid && this.refs.ageField.state.valid) {
-            alert("Имя: " + name + " Возраст: " + age);
+            this.props.addUser({ name: name, age: age});
         }
     }
 
     render() {
+        console.log(this.props.userStore);
         return (
             <form onSubmit={this.handleSubmit}>
                 <NameField value="" ref="nameField" />
@@ -30,4 +32,9 @@ class UserForm extends Component {
     }
 }
 
-export default UserForm;
+export default connect(
+    state => ({
+        userStore: state
+    }),
+    actions
+ )(UserForm);
