@@ -20,7 +20,7 @@ class UserList extends Component {
 
 export default connect(
     state => ({
-        userStore: state
+        userStore: state.users
     }),
     dispatch => ({})
  )(UserList);

@@ -34,7 +34,7 @@ class UserForm extends Component {
 
 export default connect(
     state => ({
-        userStore: state
+        userStore: state.users
     }),
     actions
  )(UserForm);

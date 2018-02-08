@@ -7,23 +7,9 @@ import Nav from './components/Nav';
 import { Provider } from 'react-redux';
 import { createStore } from 'redux';
 
-const initialState = [
-    { name: 'Jon', age: 12 },
-    { name: 'Sanny', age: 20 },
-    { name: 'Rose', age: 18 }
-]
+import reducer from './reducers';
 
-const users = (state = initialState, action) => {
-    if(action.type === 'ADD_USER'){
-        return [
-            ...state,
-            action.payload
-        ]
-    }
-    return state; 
-}
-
-const store = createStore(users, window.__REDUX_DEVTOOLS_EXTENSION__ && 
+const store = createStore(reducer, window.__REDUX_DEVTOOLS_EXTENSION__ && 
     window.__REDUX_DEVTOOLS_EXTENSION__());
 
 ReactDOM.render(
