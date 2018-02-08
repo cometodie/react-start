@@ -1,5 +1,6 @@
 import React from 'react';
-import styles from '../styles/nav.css';
+import styles from './nav.css';
+
 import {Link, BrowserRouter}  from 'react-router-dom';
  
 class Nav extends React.Component{

@@ -1,9 +1,9 @@
 
 import React, { Component } from 'react';
 import Router from 'react-router';
-import AgeField from './AgeField';
-import NameField from './NameField';
-import actions from '../actions/actions.js';
+import AgeField from '../ageField/AgeField';
+import NameField from '../nameField/NameField';
+import actions from '../../actions/actions.js';
 import { connect } from 'react-redux';
 
 class UserForm extends Component {
