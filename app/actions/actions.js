@@ -1,8 +1,8 @@
-var addUser = function (user) {
-    return {
-        type: "ADD_USER",
-        payload: user
-    }
+var addUser = function(user) {
+  return {
+    type: "ADD_USER",
+    payload: user
+  };
 };
 
-export default {addUser};
+export default { addUser };
