@@ -8,6 +8,7 @@ import { connect } from "react-redux";
 class UserForm extends Component {
   constructor(props) {
     super(props);
+    console.log(this.props);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
   handleSubmit(e) {
@@ -15,12 +16,11 @@ class UserForm extends Component {
     var name = this.refs.nameField.state.value;
     var age = parseInt(this.refs.ageField.state.value);
     if (this.refs.nameField.state.valid && this.refs.ageField.state.valid) {
-      this.props.addUser({ name: name, age: age });
+      this.props.onSubmitForm({ name: name, age: age });
     }
   }
 
   render() {
-    console.log(this.props.userStore);
     return (
       <form onSubmit={this.handleSubmit}>
         <NameField value="" ref="nameField" />
@@ -31,9 +31,4 @@ class UserForm extends Component {
   }
 }
 
-export default connect(
-  state => ({
-    userStore: state.users
-  }),
-  actions
-)(UserForm);
+export default UserForm;

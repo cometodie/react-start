@@ -7,6 +7,8 @@ const initialState = [
 const users = (state = initialState, action) => {
   if (action.type === "ADD_USER") {
     return [...state, action.payload];
+  } else if (action.type === "GET_USERS"){
+    return action.payload;
   }
   return state;
 };

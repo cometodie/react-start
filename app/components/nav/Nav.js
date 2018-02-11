@@ -13,6 +13,9 @@ class Nav extends React.Component {
         <Link to="/userlist" className={styles.item}>
           List of users
         </Link>
+        <Link to="/productlist" className={styles.item}>
+          List of products
+        </Link>
       </div>
     );
   }

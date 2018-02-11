@@ -1,7 +1,7 @@
 const initialState = [
-  { name: "Orange", cost: "2.5" },
-  { name: "Bananas", cost: "3" },
-  { name: "Apple", cost: "2" }
+  { name: "Orange", cost: 2.5 },
+  { name: "Bananas", cost: 3 },
+  { name: "Apple", cost: 2 }
 ];
 
 const products = (state = initialState, action) => {

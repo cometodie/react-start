@@ -1,18 +1,18 @@
 import ReactDOM from "react-dom";
 import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import UserForm from "./components/userForm/UserForm";
-import UserList from "./components/userList/UsersList";
 import Nav from "./components/nav/Nav";
 import { Provider } from "react-redux";
-import { createStore } from "redux";
+import { createStore, applyMiddleware } from "redux";
+import { composeWithDevTools } from "redux-devtools-extension";
+import thunk from 'redux-thunk';
 
 import reducer from "./reducers";
+import UserListContainer from "./containers/UserListContainer";
+import UserFormContainer from "./containers/UserFormContainer";
+import ProductListContainer from "./containers/ProductListContainer";
 
-const store = createStore(
-  reducer,
-  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
-);
+const store = createStore(reducer, composeWithDevTools(applyMiddleware(thunk)));
 
 ReactDOM.render(
   <Provider store={store}>
@@ -20,8 +20,9 @@ ReactDOM.render(
       <div>
         <Nav />
         <Switch>
-          <Route exact path="/" component={UserForm} />
-          <Route exact path="/userlist" component={UserList} />
+          <Route exact path="/" component={UserFormContainer} />
+          <Route exact path="/userlist" component={UserListContainer} />
+          <Route exact path="/productlist" component={ProductListContainer} />
         </Switch>
       </div>
     </Router>
