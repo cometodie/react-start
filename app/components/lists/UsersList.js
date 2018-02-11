@@ -7,7 +7,7 @@ class UserList extends Component {
     super(props);
   }
 
-  componentWillMount(){
+  componentWillMount() {
     this.props.getUsers();
   }
 
@@ -16,7 +16,7 @@ class UserList extends Component {
       <ul>
         {this.props.userStore.map((user, index) => {
           return (
-            <li key={index} style={{color: this.props.isMultiplicity}}>
+            <li key={index} style={{ color: this.props.isMultiplicity }}>
               Name: {user.name}. Age: {user.age}
             </li>
           );

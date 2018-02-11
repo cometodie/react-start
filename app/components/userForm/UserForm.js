@@ -8,7 +8,6 @@ import { connect } from "react-redux";
 class UserForm extends Component {
   constructor(props) {
     super(props);
-    console.log(this.props);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
   handleSubmit(e) {

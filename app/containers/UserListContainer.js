@@ -1,11 +1,11 @@
-import { connect } from 'react-redux';
+import { connect } from "react-redux";
 
-import UserList from '../components/lists/UsersList'
-import { getUsers } from '../actions/actions';
+import UserList from "../components/lists/UsersList";
+import { getUsers } from "../actions/actions";
 
-const getMultiplicity = (usersLength) => {
-    return usersLength%2 == 0 ? 'blue' : 'red'; 
-}
+const getMultiplicity = usersLength => {
+  return usersLength % 2 == 0 ? "blue" : "red";
+};
 
 const mapStateToProps = state => {
   return {
@@ -17,7 +17,7 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
   return {
     getUsers: () => dispatch(getUsers())
-  }
-}
+  };
+};
 
 export default connect(mapStateToProps, mapDispatchToProps)(UserList);
