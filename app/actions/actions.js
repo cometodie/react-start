@@ -7,7 +7,7 @@ export const addUser = user => {
 
 export const getUsers = () => dispatch => {
   const xhr = new XMLHttpRequest();
-  xhr.open("GET", "http://demo4309610.mockable.io/api/users", false);
+  xhr.open("GET", "http://demo0819111.mockable.io/api/users", false);
   xhr.send();
 
   if (xhr.status == 200) {

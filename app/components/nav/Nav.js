@@ -1,5 +1,5 @@
 import React from "react";
-import styles from "./nav.css";
+require("./nav.scss");
 
 import { Link, BrowserRouter } from "react-router-dom";
 
@@ -7,13 +7,13 @@ class Nav extends React.Component {
   render() {
     return (
       <div>
-        <Link to="/" className={styles.item}>
+        <Link to="/" >
           Home
         </Link>
-        <Link to="/userlist" className={styles.item}>
+        <Link to="/userlist" className='test'>
           List of users
         </Link>
-        <Link to="/productlist" className={styles.item}>
+        <Link to="/productlist" >
           List of products
         </Link>
       </div>
