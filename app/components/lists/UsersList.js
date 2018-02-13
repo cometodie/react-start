@@ -8,7 +8,7 @@ class UserList extends Component {
   }
 
   componentWillMount() {
-    this.props.getUsers();
+    this.props.toggleLoading(true);
   }
 
   render() {

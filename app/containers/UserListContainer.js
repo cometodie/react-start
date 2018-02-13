@@ -2,6 +2,7 @@ import { connect } from "react-redux";
 
 import UserList from "../components/lists/UsersList";
 import { getUsers } from "../actions/actions";
+import { setLoading } from "../actions/actions";
 
 const getMultiplicity = usersLength => {
   return usersLength % 2 == 0 ? "blue" : "red";
@@ -16,7 +17,10 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    getUsers: () => dispatch(getUsers())
+    getUsers: () => dispatch(getUsers()),
+    toggleLoading: status => { 
+      dispatch(setLoading(status))
+    }
   };
 };
 

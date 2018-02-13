@@ -12,5 +12,14 @@ export const getUsers = () => dispatch => {
 
   if (xhr.status == 200) {
     dispatch({ type: "GET_USERS", payload: JSON.parse(xhr.responseText) });
+    dispatch(setLoading(false));
   }
 };
+
+export const setLoading = status => {
+  console.log("exec");
+  return {
+    type: "TOGGLE_LOADING",
+    payload: status
+  }
+}
