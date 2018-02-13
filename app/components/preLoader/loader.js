@@ -5,25 +5,29 @@ require("./loader.scss");
 class Loader extends Component {
   constructor(props) {
     super(props);
-    console.log("inComponent", this.props.isLoading);
   }
 
   render() {
-    return (
-      <div className="wrapper" style={{display: this.props.isLoading ? 'block' : 'none'}}>
-        <div className="head">
-          <div className="topHead">
-            <div className="eye1">
-                <div className='black'/>
+    if(this.props.isLoading){
+      return (
+        <div className="wrapper">
+          <div className="head">
+            <div className="topHead">
+            <div className='eyebrow1'></div>
+            <div className='eyebrow2'></div>
+              <div className="eye1">
+                  <div className='black'/>
+              </div>
+              <div className="eye2">
+                  <div className='black'/>
+              </div>
             </div>
-            <div className="eye2">
-                <div className='black'/>
-            </div>
+            <div className="mouth" />
           </div>
-          <div className="mouth" />
         </div>
-      </div>
-    );
+      );
+    }
+    return null;
   }
 }
 

@@ -6,13 +6,16 @@ export const addUser = user => {
 };
 
 export const getUsers = () => dispatch => {
+  dispatch({ type: "TOGGLE_LOADING", payload: true});
   const xhr = new XMLHttpRequest();
   xhr.open("GET", "http://demo0819111.mockable.io/api/users", false);
   xhr.send();
 
   if (xhr.status == 200) {
     dispatch({ type: "GET_USERS", payload: JSON.parse(xhr.responseText) });
-    dispatch(setLoading(false));
+    setTimeout(() => {
+      dispatch({ type: "TOGGLE_LOADING", payload: false});
+    }, 1000);
   }
 };
 

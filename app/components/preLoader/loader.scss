@@ -21,6 +21,7 @@
 .topHead {
   display: flex;
   flex-flow: row nowrap;
+  position: relative;
 }
 .eye1 {
   height: 100px;
@@ -51,7 +52,46 @@
   height: 25px;
   border-radius: 50%;
   background: #000;
-//   animation: load 0.5s ease-in-out alternate infinite;
+  animation: load 0.5s ease-in-out alternate infinite;
+}
+
+.eyebrow1, .eyebrow2 {
+  height: 5px;
+    width: 50px;
+    position: absolute;
+    background: #000;
+    z-index: 2;
+    border-radius: 5px;
+}
+
+@keyframes eyeB1{
+  from{
+    transform: rotate(-150deg);
+  }
+  to{
+    transform: rotate(-175deg);
+  }
+}
+
+@keyframes eyeB2{
+  from{
+    transform: rotate(150deg);
+  }
+  to{
+    transform: rotate(175deg);
+  }
+}
+
+.eyebrow1{
+  left: 78px;
+  top: 43px;
+  animation: eyeB1 0.5s ease-in-out alternate infinite;
+}
+
+.eyebrow2{
+  right: 90px;
+  top: 43px;
+  animation: eyeB2 0.5s ease-in-out alternate infinite;
 }
 
 .mouth {
@@ -59,9 +99,19 @@
   height: 50px;
   border: 2px solid #000;
   position: relative;
-  border-radius: 100% 0;
+  border-radius: 100%;
   top: 80px;
   left: 50px;
+  animation: mouth 0.2s ease-in-out alternate infinite;
+}
+
+@keyframes mouth {
+  from{
+    transform: matrix(1, 0, 0, -1, 0,0);
+  }
+  to{
+    transform: matrix(1, 0, 0, -2, 0,0);
+  }
 }
 
 @keyframes load {

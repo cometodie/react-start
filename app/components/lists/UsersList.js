@@ -8,10 +8,11 @@ class UserList extends Component {
   }
 
   componentWillMount() {
-    this.props.toggleLoading(true);
+    this.props.getUsers();
   }
 
   render() {
+    console.log("render");
     return (
       <ul>
         {this.props.userStore.map((user, index) => {
