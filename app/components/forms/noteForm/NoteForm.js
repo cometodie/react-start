@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import Router from "react-router";
 import NoteField from "../textField/NoteField";
 import TitleField from "../titleField/TitleField";
-import actions from "../../actions/actions.js";
+import actions from "../../../actions/actions.js";
 import { connect } from "react-redux";
 import RaisedButton from 'material-ui/RaisedButton';
 require('./NoteForm.scss');

@@ -1,6 +1,6 @@
 import { connect } from "react-redux";
 import { addNote } from "../actions/actions";
-import NoteForm from "../components/noteForm/NoteForm";
+import NoteForm from "../components/forms/noteForm/NoteForm";
 
 const mapStateToProps = state => {
   return {

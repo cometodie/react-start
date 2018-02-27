@@ -1,9 +1,9 @@
 import ReactDOM from "react-dom";
 import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import Nav from "./components/nav/Nav";
-import SideBar from "./components/sideBar/SideBar";
-import Loader from "./components/preLoader/Loader";
+import Nav from "./components/utilities/nav/Nav";
+import SideBar from "./components/utilities/sideBar/SideBar";
+import Loader from "./components/utilities/preLoader/Loader";
 import { Provider } from "react-redux";
 import { createStore, applyMiddleware } from "redux";
 import { composeWithDevTools } from "redux-devtools-extension";
