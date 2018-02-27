@@ -13,6 +13,9 @@ require("./list.scss");
 class TodoList extends Component {
   constructor(props) {
     super(props);
+    this.state = {
+      notes: props.noteStore
+    };
     this.deleteNote = this.deleteNote.bind(this);
     this.updateNote = this.updateNote.bind(this);
     this.updateCheck = this.updateCheck.bind(this);
@@ -20,6 +23,10 @@ class TodoList extends Component {
 
   componentWillMount() {
     this.props.getNotes();
+  }
+
+  componentWillReceiveProps(nextProps) {
+    this.setState({ notes: nextProps.noteStore });
   }
 
   deleteNote(note) {
@@ -46,7 +53,7 @@ class TodoList extends Component {
           avatar="assets/images/RV1YFXOLicc.jpg"
         />
         <List>
-          {this.props.noteStore.map((note, index) => {
+          {this.state.notes.map((note, index) => {
             return (
               <div className="row-flex" key={index}>
                 <div className="row-flex">
@@ -79,9 +86,9 @@ class TodoList extends Component {
 TodoList.propTypes = {
   noteStore: PropTypes.arrayOf(
     PropTypes.shape({
+      important: PropTypes.bool.isRequired,
       title: PropTypes.string.isRequired,
-      text: PropTypes.string.isRequired,
-      important: PropTypes.bool.isRequired
+      text: PropTypes.string.isRequired
     })
   ).isRequired
 };

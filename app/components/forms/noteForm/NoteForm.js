@@ -18,9 +18,9 @@ class NoteForm extends Component {
     var title = this.refs.titleField.state.value;
     var text = this.refs.textField.state.value;
     if (this.refs.titleField.state.valid && this.refs.textField.state.valid) {
-      this.props.onSubmitForm({ title: title, text: text });
-      // this.refs.titleField.state.value = '';
-      // this.refs.textField.state.value = '';
+      this.props.onSubmitForm({ title: title, text: text, important: false });
+      this.refs.titleField.state.value = '';
+      this.refs.textField.state.value = '';
       this.props.showSnackbar('Note was added successfuly!');
     }
   }
