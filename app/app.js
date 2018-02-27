@@ -14,7 +14,6 @@ import Loader from "./components/utilities/preLoader/Loader";
 import reducer from "./reducers";
 import TodoListContainer from "./containers/TodoListContainer";
 import TodoListFormContainer from "./containers/TodoListFormContainer";
-import ProductListContainer from "./containers/ProductListContainer";
 import SnackBar from "./components/utilities/snackBar/SnackBar";
 require("./app.scss");
 
@@ -31,7 +30,6 @@ ReactDOM.render(
           <Switch>
             <Route exact path="/" component={TodoListFormContainer} />
             <Route exact path="/TodoList" component={TodoListContainer} />
-            <Route exact path="/productlist" component={ProductListContainer} />
           </Switch>
           <SnackBar />
         </div>

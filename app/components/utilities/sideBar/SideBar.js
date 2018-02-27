@@ -53,10 +53,6 @@ class SideBar extends React.Component {
               containerElement={<Link to="/TodoList" />}
               primaryText="List of notes"
             />
-            <MenuItem
-              containerElement={<Link to="/productlist" />}
-              primaryText="List of Products"
-            />
           </Menu>
         </Paper>
       </div>
