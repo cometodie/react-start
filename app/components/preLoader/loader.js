@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-require("./loader.scss");
+require("./Loader.scss");
 
 class Loader extends Component {
   constructor(props) {
@@ -8,18 +8,18 @@ class Loader extends Component {
   }
 
   render() {
-    if(this.props.isLoading){
+    if (this.props.isLoading) {
       return (
         <div className="wrapper">
           <div className="head">
             <div className="topHead">
-            <div className='eyebrow1'></div>
-            <div className='eyebrow2'></div>
+              <div className="eyebrow1" />
+              <div className="eyebrow2" />
               <div className="eye1">
-                  <div className='black'/>
+                <div className="black" />
               </div>
               <div className="eye2">
-                  <div className='black'/>
+                <div className="black" />
               </div>
             </div>
             <div className="mouth" />
@@ -32,8 +32,10 @@ class Loader extends Component {
 }
 
 export default connect(
-    state => {
-        return {
-            isLoading: state.loading 
-        }
-    }, dispatch => ({}))(Loader);
+  state => {
+    return {
+      isLoading: state.loading
+    };
+  },
+  dispatch => ({})
+)(Loader);

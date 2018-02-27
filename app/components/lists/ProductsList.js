@@ -1,6 +1,9 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
+import { Card } from "material-ui/Card";
+import { List, ListItem } from "material-ui/List";
+require('./list.scss');
 
 class ProductList extends Component {
   constructor(props) {
@@ -9,11 +12,15 @@ class ProductList extends Component {
 
   render() {
     const products = this.props.productsStore.map((product, index) => (
-      <li key={index}>
+      <List key={index}>
         Name: {product.name}. Cost: {product.cost}
-      </li>
+      </List>
     ));
-    return <ul>{products}</ul>;
+    return (
+      <Card className='card'>
+        <ListItem>{products}</ListItem>
+      </Card>
+    );
   }
 }
 

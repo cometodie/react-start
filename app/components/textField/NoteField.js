@@ -1,15 +1,18 @@
 import React, { Component } from "react";
+import TextField from 'material-ui/TextField';
 
-class NameField extends Component {
+class NoteField extends Component {
   constructor(props) {
     super(props);
     var isValid = this.validate(props.value);
     this.state = { value: props.value, valid: isValid };
     this.onChange = this.onChange.bind(this);
   }
+  
   validate(val) {
     return val.length > 2;
   }
+  
   onChange(e) {
     var val = e.target.value;
     var isValid = this.validate(val);
@@ -18,18 +21,21 @@ class NameField extends Component {
   render() {
     var color = this.state.valid === true ? "green" : "red";
     return (
-      <p>
-        <label>Имя:</label>
+      <div>
+        <label>Note description:</label>
         <br />
-        <input
-          type="text"
+        <TextField
+          name="textField"
+          multiLine={true}
+          rows={2}
+          rowsMax={5}
           value={this.state.value}
           onChange={this.onChange}
           style={{ borderColor: color }}
         />
-      </p>
+      </div>
     );
   }
 }
 
-export default NameField;
+export default NoteField;

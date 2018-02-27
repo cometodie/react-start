@@ -2,6 +2,7 @@ import ReactDOM from "react-dom";
 import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Nav from "./components/nav/Nav";
+import SideBar from "./components/sideBar/SideBar";
 import Loader from "./components/preLoader/Loader";
 import { Provider } from "react-redux";
 import { createStore, applyMiddleware } from "redux";
@@ -9,27 +10,32 @@ import { composeWithDevTools } from "redux-devtools-extension";
 import thunk from "redux-thunk";
 
 import reducer from "./reducers";
-import UserListContainer from "./containers/UserListContainer";
-import UserFormContainer from "./containers/UserFormContainer";
+import TodoListContainer from "./containers/TodoListContainer";
+import TodoListFormContainer from "./containers/TodoListFormContainer";
 import ProductListContainer from "./containers/ProductListContainer";
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 require('./app.scss');
+// require('../assets/images/favicon.ico');
 
 
 const store = createStore(reducer, composeWithDevTools(applyMiddleware(thunk)));
 
 ReactDOM.render(
-  <Provider store={store}>
-    <Router>
-      <div>
-        <Loader />
-        <Nav />
-        <Switch>
-          <Route exact path="/" component={UserFormContainer} />
-          <Route exact path="/userlist" component={UserListContainer} />
-          <Route exact path="/productlist" component={ProductListContainer} />
-        </Switch>
-      </div>
-    </Router>
-  </Provider>,
+  <MuiThemeProvider>
+    <Provider store={store}>
+      <Router>
+        <div>
+          <Loader />
+          <Nav />
+          <SideBar />
+          <Switch>
+            <Route exact path="/" component={TodoListFormContainer} />
+            <Route exact path="/TodoList" component={TodoListContainer} />
+            <Route exact path="/productlist" component={ProductListContainer} />
+          </Switch>
+        </div>
+      </Router>
+    </Provider>
+  </MuiThemeProvider>,
   document.getElementById("app")
 );
