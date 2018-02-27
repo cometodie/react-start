@@ -24,6 +24,7 @@ class TodoList extends Component {
 
   deleteNote(note) {
     this.props.deleteNote(note);
+    this.props.showSnackbar("Note was deleted successfuly!");
   }
 
   updateNote(note) {
@@ -32,7 +33,6 @@ class TodoList extends Component {
 
   updateCheck(note) {
     note.important = !note.important;
-    console.log('todolist send: ', note);
     this.updateNote(note);
   }
 

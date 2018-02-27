@@ -57,3 +57,10 @@ export const toggleSidebar = status => {
     payload: status
   }
 }
+
+export const showSnackbar = message => {
+  return {
+    type: "SHOW_SNACKBAR",
+    payload: message
+  }
+}

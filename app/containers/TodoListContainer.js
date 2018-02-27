@@ -5,6 +5,7 @@ import { getNotes } from "../actions/actions";
 import { deleteNote } from "../actions/actions";
 import { updateNote } from "../actions/actions";
 import { setLoading } from "../actions/actions";
+import { showSnackbar } from "../actions/actions";
 
 const getMultiplicity = notesLength => {
   return notesLength % 2 == 0 ? "blue" : "red";
@@ -22,6 +23,9 @@ const mapDispatchToProps = dispatch => {
     getNotes: () => dispatch(getNotes()),
     deleteNote: (note) => dispatch(deleteNote(note)),
     updateNote: (note) => dispatch(updateNote(note)),
+    showSnackbar: message => {
+      dispatch(showSnackbar(message));
+    },
     toggleLoading: status => { 
       dispatch(setLoading(status))
     }
