@@ -17,7 +17,6 @@ class TodoList extends Component {
       notes: props.noteStore
     };
     this.deleteNote = this.deleteNote.bind(this);
-    this.updateNote = this.updateNote.bind(this);
     this.updateCheck = this.updateCheck.bind(this);
   }
 
@@ -34,13 +33,10 @@ class TodoList extends Component {
     this.props.showSnackbar("Note was deleted successfuly!");
   }
 
-  updateNote(note) {
-    this.props.updateNote(note);
-  }
-
   updateCheck(note) {
     note.important = !note.important;
-    this.updateNote(note);
+    this.props.updateNote(note);
+    this.props.showSnackbar("Note was successfuly changed!");
   }
 
   render() {
